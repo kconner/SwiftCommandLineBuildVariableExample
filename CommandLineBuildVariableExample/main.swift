@@ -7,5 +7,8 @@
 
 import Foundation
 
-print("Hello, World!")
-
+if let someSetting = BuildVariables.shared.someSetting {
+    print("someSetting:", someSetting)
+} else {
+    print("someSetting is nil")
+}

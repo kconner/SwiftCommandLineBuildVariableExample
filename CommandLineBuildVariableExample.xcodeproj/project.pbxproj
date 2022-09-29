@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2CF70F0D28E4B39100801F08 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF70F0C28E4B39100801F08 /* main.swift */; };
+		2CF70F1828E4C37500801F08 /* BuildVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF70F1728E4C37500801F08 /* BuildVariables.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,9 @@
 /* Begin PBXFileReference section */
 		2CF70F0928E4B39100801F08 /* CommandLineBuildVariableExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CommandLineBuildVariableExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF70F0C28E4B39100801F08 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2CF70F1328E4C22000801F08 /* CommandLineBuildVariableExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CommandLineBuildVariableExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		2CF70F1628E4C37500801F08 /* BuildVariables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildVariables.h; sourceTree = "<group>"; };
+		2CF70F1728E4C37500801F08 /* BuildVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildVariables.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,9 @@
 			isa = PBXGroup;
 			children = (
 				2CF70F0C28E4B39100801F08 /* main.swift */,
+				2CF70F1328E4C22000801F08 /* CommandLineBuildVariableExample-Bridging-Header.h */,
+				2CF70F1628E4C37500801F08 /* BuildVariables.h */,
+				2CF70F1728E4C37500801F08 /* BuildVariables.m */,
 			);
 			path = CommandLineBuildVariableExample;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 				TargetAttributes = {
 					2CF70F0828E4B39100801F08 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -120,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CF70F1828E4C37500801F08 /* BuildVariables.m in Sources */,
 				2CF70F0D28E4B39100801F08 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,8 +252,20 @@
 		2CF70F1128E4B39100801F08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SOME_SETTING=${SOME_SETTING}",
+				);
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CommandLineBuildVariableExample/CommandLineBuildVariableExample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -252,8 +273,16 @@
 		2CF70F1228E4B39100801F08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = "SOME_SETTING=${SOME_SETTING}";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CommandLineBuildVariableExample/CommandLineBuildVariableExample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
