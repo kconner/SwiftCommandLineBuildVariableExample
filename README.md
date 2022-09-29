@@ -13,16 +13,18 @@ This method relies on Objective-C interop, C preprocessor macros, and environmen
 First build the example app and run it. It should show that the setting is not set.
 
 ```sh
-xcodebuild
-build/Release/CommandLineBuildVariableExample
+$ xcodebuild
+$ build/Release/CommandLineBuildVariableExample
+someSetting is nil
 ```
 
 Now clean, and rebuild with our build setting's environment variable set. The project is configured to use this environment variable's value in a preprocessor macro of the same name, in the Preprocessor Macros build setting. Therefore the value is used by the compiler and becomes available to code when we run.
 
 ```sh
-xcodebuild clean
-SOME_SETTING=hello-world xcodebuild
-build/Release/CommandLineBuildVariableExample
+$ xcodebuild clean
+$ SOME_SETTING=hello-world xcodebuild
+$ build/Release/CommandLineBuildVariableExample
+someSetting: hello-world
 ```
 
 ## How it works
