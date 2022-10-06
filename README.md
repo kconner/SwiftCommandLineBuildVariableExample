@@ -22,7 +22,7 @@ Now clean, and build again with our preprocessor definition set. The value is us
 
 ```sh
 $ xcodebuild clean
-$ xcodebuild GCC_PREPROCESSOR_DEFINITIONS='$GCC_PREPROCESSOR_DEFINITIONS SOME_SETTING=HelloWorld'
+$ xcodebuild "GCC_PREPROCESSOR_DEFINITIONS='$GCC_PREPROCESSOR_DEFINITIONS SOME_SETTING=HelloWorld'"
 $ build/Release/CommandLineBuildVariableExample
 someSetting: HelloWorld
 ```
